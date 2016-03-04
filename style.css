@@ -1,3 +1,13 @@
-div {
-	border : 1px solid #000000
+body {
+	background-color: #000;
+	color: #fff;
+}
+.inputs {
+	display: inline-block;
+}
+
+#timer {
+	font-size: 500px;
+	text-align: center;
+	line-height: calc(100vh - 75px)
 }
