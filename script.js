@@ -30,8 +30,7 @@ String.prototype.toMMSS = function () {
 
 // Apertou tecla. Se foi uma das que eu escolhi, põe o tempo especificado ali
 // no div
-document.body.onkeydown = function (e) {
-	var c = String.fromCharCode (e.keyCode || e.charCode);
+function settaTimer (c) {
 	if (c == 'Q') {
 		if (caixa1.value) {
 			paraTimer ();
@@ -61,9 +60,11 @@ document.body.onkeydown = function (e) {
 		}
 	}
 }
+document.body.onkeydown = function (e) {
+	settaTimer (String.fromCharCode (e.keyCode || e.charCode));
+}
 
-document.body.onkeyup = function (e) {
-    var c = String.fromCharCode (e.keyCode || e.charCode);
+function disparaTimer (c) {
     if ('QWER'.includes (c)) {
 		paraTimer ();
 		taRolando = setInterval (function () {
@@ -77,4 +78,7 @@ document.body.onkeyup = function (e) {
 			}
 		}, 1000);
     }
+}
+document.body.onkeyup = function (e) {
+	disparaTimer (String.fromCharCode (e.keyCode || e.charCode));
 }
